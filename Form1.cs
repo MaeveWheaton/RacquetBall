@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+ * Maeve Wheaton
+ * Mr. T
+ * June 1, 2021
+ * 2 player game, ball bounces off all side but the left, players take turns hitting the ball to prevent it from touching the left side
+ * point to other player if ball touches the left, first player to 3 points wins
+*/
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
