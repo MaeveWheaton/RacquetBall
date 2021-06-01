@@ -36,7 +36,8 @@ namespace RacquetBall
         bool downArrowDown = false;
         bool rightArrowDown = false;
 
-        SolidBrush blueBrush = new SolidBrush(Color.DodgerBlue);
+        SolidBrush redBrush = new SolidBrush(Color.Red);
+        SolidBrush greenBrush = new SolidBrush(Color.Green);
         SolidBrush whiteBrush = new SolidBrush(Color.White);
         Pen playerOutlinePen = new Pen(Color.White, 2);
 
@@ -234,8 +235,8 @@ namespace RacquetBall
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-            e.Graphics.FillRectangle(blueBrush, player1);
-            e.Graphics.FillRectangle(blueBrush, player2);
+            e.Graphics.FillRectangle(redBrush, player1);
+            e.Graphics.FillRectangle(greenBrush, player2);
             e.Graphics.FillRectangle(whiteBrush, ball);
             if (playerTurn == 1)
             {
