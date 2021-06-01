@@ -23,7 +23,7 @@ namespace RacquetBall
         int playerTurn = 1;
 
         int playerSpeed = 4;
-        int ballSpeed = 6;
+        int ballSpeed = 6; //speed variable that will always stay true for reseting speeds
         int ballXSpeed = 6;
         int ballYSpeed = -6;
 
@@ -37,7 +37,7 @@ namespace RacquetBall
         bool rightArrowDown = false;
 
         SolidBrush redBrush = new SolidBrush(Color.Red);
-        SolidBrush greenBrush = new SolidBrush(Color.Green);
+        SolidBrush greenBrush = new SolidBrush(Color.Lime);
         SolidBrush whiteBrush = new SolidBrush(Color.White);
         Pen playerOutlinePen = new Pen(Color.White, 2);
 
@@ -151,7 +151,7 @@ namespace RacquetBall
                 player2.Y += playerSpeed;
             }
 
-            if (rightArrowDown == true && player2.X < this.Height - player2.Height)
+            if (rightArrowDown == true && player2.X < this.Width - player2.Height)
             {
                 player2.X += playerSpeed;
             }
@@ -182,7 +182,7 @@ namespace RacquetBall
                 if (player2.IntersectsWith(ball) && ballXSpeed < 0)
                 {
                     ballXSpeed *= -1;
-                    ball.X = player2.X - ball.Width;
+                    ball.X = player2.X + ball.Width;
 
                     playerTurn = 1;
                 }
@@ -198,7 +198,10 @@ namespace RacquetBall
                 ball.Y = 195;
 
                 player1.Y = 130;
+                player1.X = 10;
                 player2.Y = 250;
+                player2.X = 10;
+
 
                 ballXSpeed = ballSpeed;
             }
@@ -211,7 +214,9 @@ namespace RacquetBall
                 ball.Y = 195;
 
                 player1.Y = 130;
+                player1.X = 10;
                 player2.Y = 250;
+                player2.X = 10;
 
                 ballXSpeed = ballSpeed;
             }
@@ -222,12 +227,22 @@ namespace RacquetBall
                 gameTimer.Enabled = false;
                 winLabel.Visible = true;
                 winLabel.Text = "Player 1 Wins!!";
+
+                resetButton.Enabled = true;
+                resetButton.Visible = true;
+                exitButton.Enabled = true;
+                exitButton.Visible = true;
             }
             else if (player2Score == 3)
             {
                 gameTimer.Enabled = false;
                 winLabel.Visible = true;
                 winLabel.Text = "Player 2 Wins!!";
+
+                resetButton.Enabled = true;
+                resetButton.Visible = true;
+                exitButton.Enabled = true;
+                exitButton.Visible = true;
             }
 
             Refresh();
@@ -235,9 +250,12 @@ namespace RacquetBall
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
+            //draw components
             e.Graphics.FillRectangle(redBrush, player1);
             e.Graphics.FillRectangle(greenBrush, player2);
             e.Graphics.FillRectangle(whiteBrush, ball);
+
+            //outline active player
             if (playerTurn == 1)
             {
                 e.Graphics.DrawRectangle(playerOutlinePen, player1);
@@ -246,6 +264,36 @@ namespace RacquetBall
             {
                 e.Graphics.DrawRectangle(playerOutlinePen, player2);
             }
+        }
+
+        private void resetButton_Click(object sender, EventArgs e)
+        {
+            //reset positions and score
+            ball.X = 295;
+            ball.Y = 195;
+
+            player1.Y = 130;
+            player1.X = 10;
+            player2.Y = 250;
+            player2.X = 10;
+
+            player1Score = 0;
+            player2Score = 0;
+            p1ScoreLabel.Text = $"{player1Score}";
+            p2ScoreLabel.Text = $"{player2Score}";
+
+            //restart gametimer and reset screen
+            resetButton.Visible = false;
+            resetButton.Enabled = false;
+            exitButton.Visible = false;
+            exitButton.Enabled = false;
+            winLabel.Visible = false;
+            gameTimer.Enabled = true;
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
