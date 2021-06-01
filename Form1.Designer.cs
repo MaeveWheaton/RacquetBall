@@ -34,6 +34,8 @@ namespace RacquetBall
             this.p2ScoreLabel = new System.Windows.Forms.Label();
             this.winLabel = new System.Windows.Forms.Label();
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
+            this.player1Label = new System.Windows.Forms.Label();
+            this.player2Label = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // p1ScoreLabel
@@ -41,7 +43,7 @@ namespace RacquetBall
             this.p1ScoreLabel.BackColor = System.Drawing.Color.Transparent;
             this.p1ScoreLabel.Font = new System.Drawing.Font("Courier New", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.p1ScoreLabel.ForeColor = System.Drawing.Color.White;
-            this.p1ScoreLabel.Location = new System.Drawing.Point(196, 27);
+            this.p1ScoreLabel.Location = new System.Drawing.Point(185, 48);
             this.p1ScoreLabel.Name = "p1ScoreLabel";
             this.p1ScoreLabel.Size = new System.Drawing.Size(97, 53);
             this.p1ScoreLabel.TabIndex = 0;
@@ -53,7 +55,7 @@ namespace RacquetBall
             this.p2ScoreLabel.BackColor = System.Drawing.Color.Transparent;
             this.p2ScoreLabel.Font = new System.Drawing.Font("Courier New", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.p2ScoreLabel.ForeColor = System.Drawing.Color.White;
-            this.p2ScoreLabel.Location = new System.Drawing.Point(299, 27);
+            this.p2ScoreLabel.Location = new System.Drawing.Point(324, 48);
             this.p2ScoreLabel.Name = "p2ScoreLabel";
             this.p2ScoreLabel.Size = new System.Drawing.Size(97, 53);
             this.p2ScoreLabel.TabIndex = 1;
@@ -78,11 +80,37 @@ namespace RacquetBall
             this.gameTimer.Interval = 20;
             this.gameTimer.Tick += new System.EventHandler(this.gameTimer_Tick);
             // 
+            // player1Label
+            // 
+            this.player1Label.BackColor = System.Drawing.Color.Transparent;
+            this.player1Label.Font = new System.Drawing.Font("Courier New", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.player1Label.ForeColor = System.Drawing.Color.Red;
+            this.player1Label.Location = new System.Drawing.Point(122, -5);
+            this.player1Label.Name = "player1Label";
+            this.player1Label.Size = new System.Drawing.Size(196, 53);
+            this.player1Label.TabIndex = 3;
+            this.player1Label.Text = "Player 1";
+            this.player1Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // player2Label
+            // 
+            this.player2Label.BackColor = System.Drawing.Color.Transparent;
+            this.player2Label.Font = new System.Drawing.Font("Courier New", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.player2Label.ForeColor = System.Drawing.Color.Lime;
+            this.player2Label.Location = new System.Drawing.Point(288, -5);
+            this.player2Label.Name = "player2Label";
+            this.player2Label.Size = new System.Drawing.Size(196, 53);
+            this.player2Label.TabIndex = 4;
+            this.player2Label.Text = "Player 2";
+            this.player2Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(600, 400);
+            this.Controls.Add(this.player2Label);
+            this.Controls.Add(this.player1Label);
             this.Controls.Add(this.winLabel);
             this.Controls.Add(this.p2ScoreLabel);
             this.Controls.Add(this.p1ScoreLabel);
@@ -104,6 +132,8 @@ namespace RacquetBall
         private System.Windows.Forms.Label p2ScoreLabel;
         private System.Windows.Forms.Label winLabel;
         private System.Windows.Forms.Timer gameTimer;
+        private System.Windows.Forms.Label player1Label;
+        private System.Windows.Forms.Label player2Label;
     }
 }
 

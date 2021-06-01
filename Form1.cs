@@ -23,6 +23,7 @@ namespace RacquetBall
         int playerTurn = 1;
 
         int playerSpeed = 4;
+        int ballSpeed = 6;
         int ballXSpeed = 6;
         int ballYSpeed = -6;
 
@@ -197,6 +198,8 @@ namespace RacquetBall
 
                 player1.Y = 130;
                 player2.Y = 250;
+
+                ballXSpeed = ballSpeed;
             }
             else if (ball.X < 0 && playerTurn == 2)
             {
@@ -208,6 +211,8 @@ namespace RacquetBall
 
                 player1.Y = 130;
                 player2.Y = 250;
+
+                ballXSpeed = ballSpeed;
             }
 
             //check for game over
